@@ -1,0 +1,12 @@
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: notes-app-vpa
+  namespace: notes-app
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       notes-app-deployment
+  updatePolicy:
+    updateMode: "Auto"
